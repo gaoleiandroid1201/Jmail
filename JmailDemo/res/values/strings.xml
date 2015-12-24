@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">EmailDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="your_email_address">请输入发送邮件邮箱地址</string>
+    <string name="your_email_password">请输入发送邮件邮箱密码(或授权吗)</string>
+    <string name="accept_email_address">请输入接受邮件邮箱地址</string>
+
+</resources>
