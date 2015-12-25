@@ -20,8 +20,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	private EditText email_addr_edit, email_pwd_edit, accept_email_addr_edit;
 	private final int FILE_SELECT_CODE = 0;
 	private final int FILECHOOSER_RESULTCODE = 1;
-	//附件地址，目前暂时只能添加图片
-	private String file_path=null;
+	// 附件地址，目前暂时只能添加图片
+	private String file_path = null;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -62,10 +63,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 	/** 调用文件选择软件来选择文件 **/
 	private void showFileChooser() {
-		 Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-         i.addCategory(Intent.CATEGORY_OPENABLE);
-         i.setType("image/*");
-         startActivityForResult(Intent.createChooser(i, "File Chooser"), FILECHOOSER_RESULTCODE);
+		Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+		i.addCategory(Intent.CATEGORY_OPENABLE);
+		// 不知道为什么，这里只能跳转到图片，i.setType("*/*");怎不能正确获取文件路径
+		i.setType("image/*");
+		startActivityForResult(Intent.createChooser(i, "File Chooser"),
+				FILECHOOSER_RESULTCODE);
 	}
 
 	/** 根据返回选择的文件，来进行上传操作 **/
@@ -80,19 +83,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			CursorLoader cursorLoader = new CursorLoader(this, uri, pojo, null,
 					null, null);
 			Cursor cursor = cursorLoader.loadInBackground();
-			if(cursor!=null){
-			cursor.moveToFirst();
-			file_path = cursor.getString(cursor.getColumnIndex(pojo[0]));
-			Log.d("gaolei", "file_path---------------" + file_path);
-			file_dir.setText(file_path);
+			if (cursor != null) {
+				cursor.moveToFirst();
+				file_path = cursor.getString(cursor.getColumnIndex(pojo[0]));
+				Log.d("gaolei", "file_path---------------" + file_path);
+				file_dir.setText(file_path);
 			}
 
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	
-
+	// 异步发送邮件
 	class SenderRunnable implements Runnable {
 
 		private String user;
@@ -134,6 +136,4 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			}
 		}
 	}
-
-	
 }
