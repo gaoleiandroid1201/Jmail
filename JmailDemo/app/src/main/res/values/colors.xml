@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_dc353b">#dc353b</color>
+    <color name="color_a32e33">#a32e33</color>
+    <color name="app_color">#fa0007</color>
+    <color name="app_color_bb">#bbfa0007</color>
+    <color name="color_d0d0d0">#d0d0d0</color>
+    <color name="color_fda127">#fda127</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="42dp"
+    android:background="@color/app_color">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="反馈与建议"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+</RelativeLayout>
+
+
